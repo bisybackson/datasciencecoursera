@@ -59,4 +59,4 @@ rm(features_mean_std, features, activitylabels)
 
 # Normalise variable names and write out tidy dataset to working directory
 names(tidy_features) <- tolower(gsub("[()--,]","",(names(tidy_features))))
-write.csv(tidy_features, file="tidy_features.csv", row.names = FALSE)
+write.table(tidy_features, file="tidy_features.txt", row.names = FALSE)

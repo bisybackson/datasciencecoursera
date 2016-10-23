@@ -2,7 +2,7 @@
 title: "run_analysis.R"
 author: "Deon Erasmus"
 date: "2016-10-23"
-output: tidy_features.csv
+output: tidy_features.txt
   html_document:
     keep_md: yes
 ---
@@ -23,7 +23,9 @@ This script downloads a predefined dataset from https://d396qusza40orc.cloudfron
 - Summarise dataset for all features by activity and subject
 
 ### Usage
-Run the script from your working directory by executing run_analysis.R; the resultant tidy dataset called tidy_features.csv will be placed in the working directory. Downloaded and extracted raw data is placed in ./rawdata/ and not removed.
+Run the script from your working directory by executing run_analysis.R; the resultant tidy dataset called tidy_features.txt will be placed in the working directory. Downloaded and extracted raw data is placed in ./rawdata/ and not removed.
+
+The resultant tidy dataset can be loaded into R with 'read.table("tidy_features.txt", header = TRUE)
 
 ### Further information
 Please see the accomanying code book (CodeBook.md) for further information.

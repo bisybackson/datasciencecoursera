@@ -120,6 +120,7 @@ tBodyGyroMean
 tBodyGyroJerkMean
 
 The complete list of (quoted) variables of the resultant tidy dataset are:
+
 "activity"
 "subject"
 "tbodyaccmeanx"
