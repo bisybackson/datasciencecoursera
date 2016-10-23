@@ -1,5 +1,5 @@
 ---
-title: "run_analysis.R Codebook"
+title: "run_analysis.R"
 author: "Deon Erasmus"
 date: "2016-10-23"
 output: tidy_features.csv
@@ -7,55 +7,23 @@ output: tidy_features.csv
     keep_md: yes
 ---
 
-## Project Description
-Short description of the project
+### Introduction 
 
-##Study design and data processing
+This script downloads a predefined dataset from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip, then extracts it and processes it in the following manner:
 
-###Assumptions
+- Prepare the environment by loading dplyr and data.table packages. Data.table makes processing much faster, and dplyr is required for selecting and summarising required data.
+- Download and extract the dataset to location specified by 'filepath'
+- Load the metadata (labels for activity and features) from text files into variables
+- Read the test and training datasets into data.table objects
+- Set column names according to features.txt
+- Add columns containing subject ID and activity performed
+- Merge test and training data
+- Replace activity values with descriptive label
+- Extract only columns containing "[Mm]ean" or "std" in the header
+- Summarise dataset for all features by activity and subject
 
-* File path is specified to be "~/DataScienceCoursera/UCI HAR Dataset".
-* Since inertial data is not part of tidy dataset to be produced, this is not imported.
-* We are treating the activity names as variables, and as such they are read in as factors from the data and not reformatted in any way.
+### Usage
+Run the script from your working directory by executing run_analysis.R; the resultant tidy dataset called tidy_features.csv will be placed in the working directory. Downloaded and extracted raw data is placed in ./rawdata/ and not removed.
 
-###Collection of the raw data
-Description of how the data was collected.
-
-###Notes on the original (raw) data 
-Some additional notes (if avaialble, otherwise you can leave this section out).
-
-##Creating the tidy datafile
-
-###Guide to create the tidy data file
-Description on how to create the tidy data file (1. download the data, ...)/
-
-###Cleaning of the data
-Short, high-level description of what the cleaning script does. [link to the readme document that describes the code in greater detail]()
-
-##Description of the variables in the tiny_data.txt file
-General description of the file including:
- - Dimensions of the dataset
- - Summary of the data
- - Variables present in the dataset
-
-(you can easily use Rcode for this, just load the dataset and provide the information directly form the tidy data file)
-
-###Variable 1 (repeat this section for all variables in the dataset)
-Short description of what the variable describes.
-
-Some information on the variable including:
- - Class of the variable
- - Unique values/levels of the variable
- - Unit of measurement (if no unit of measurement list this as well)
- - In case names follow some schema, describe how entries were constructed (for example time-body-gyroscope-z has 4 levels of descriptors. Describe these 4 levels). 
-
-(you can easily use Rcode for this, just load the dataset and provide the information directly form the tidy data file)
-
-####Notes on variable 1:
-If available, some additional notes on the variable not covered elsewehere. If no notes are present leave this section out.
-
-##Sources
-Sources you used if any, otherise leave out.
-
-##Annex
-If you used any code in the codebook that had the echo=FALSE attribute post this here (make sure you set the results parameter to 'hide' as you do not want the results to show again)
+### Further information
+Please see the accomanying code book (CodeBook.md) for further information.
